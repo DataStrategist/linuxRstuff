@@ -8,3 +8,9 @@ For all of these scripts, either clone the folder into your server (probably eas
 
  - **Rinstaller.sh** - create a file like this in your server and use it to install packages. That way, the packages will be available for all users.
   - **chek.sh** - a file that you can use to see if an R script is running... if it's running, then do nothing... if it's NOT running, then it assigns the working directory, and restarts the file.
+
+## Tips:
+**Set up R cron jobs like this:**
+`40 * * * * Rscript "path/file.R" >> /home/YourLinuxUsername/NewLogger.log 2>&1`
+
+This way you'll have a log file that outputs the contents of each run.
