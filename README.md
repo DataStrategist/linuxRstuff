@@ -1,5 +1,5 @@
 # linuxRstuff
-a collection of random scripts and notes that help R-Users working in Linux
+a collection of random scripts and notes that help R-Users working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome.
 
 ## Scripts:
 For all of these scripts, either clone the folder into your server (probably easiest), or `touch` a new file, then edit that file and drop the code in.
@@ -14,3 +14,9 @@ For all of these scripts, either clone the folder into your server (probably eas
 `40 * * * * Rscript "path/file.R" >> /home/YourLinuxUsername/NewLogger.log 2>&1`
 
 This way you'll have a log file that outputs the contents of each run.
+
+## Locale stuff:
+`sudo locale-gen en_US` Set a locale. Sometimes for some reason this needs to be manually edited in a few other places... for example: `sudo nano /etc/default/locale` and `sudo nano /etc/environment`, and then finally, you have the big one `sudo dpkg-reconfigure locales`.
+
+After you're done, you need to `sudo reboot`. Then you can check your new stuff using `locale` or `env`.
+
