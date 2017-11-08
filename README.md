@@ -20,3 +20,13 @@ This way you'll have a log file that outputs the contents of each run.
 
 After you're done, you need to `sudo reboot`. Then you can check your new stuff using `locale` or `env`.
 
+
+## START STOP RESTART COMMANDS
+sudo systemctl start shiny-server
+sudo systemctl stop shiny-server
+sudo systemctl restart shiny-server
+
+sudo rstudio-server start
+sudo rstudio-server stop
+sudo rstudio-server restart
+
