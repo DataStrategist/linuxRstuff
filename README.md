@@ -22,11 +22,21 @@ After you're done, you need to `sudo reboot`. Then you can check your new stuff 
 
 
 ## START STOP RESTART COMMANDS
+
+```
 sudo systemctl start shiny-server
 sudo systemctl stop shiny-server
 sudo systemctl restart shiny-server
+```
 
+```
 sudo rstudio-server start
 sudo rstudio-server stop
 sudo rstudio-server restart
+```
+
+## Write access:
+`sudo chmod -R 750 FileOrFolder`
+
+where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "execute", and0 stands for "no permission.". Add them up to come up w/ the number. The three numbers stand for "user", "group", and "other". the `-R` means Recursive (as in the case of a folder).
 
