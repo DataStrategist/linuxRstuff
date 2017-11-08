@@ -13,6 +13,7 @@ if [ "$source" = "g" ]; then
 else
         echo --------------------------------
         echo Grabbin $varname from CRAN
-        sudo su - -c \\"R -e \"install.packages('$varname', repos='http://cran.$
+        sudo su - -c \\"R -e \"install.packages('$varname', repos='http://cran.rstudio.com/')\"\\"
 fi
+
 
