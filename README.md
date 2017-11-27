@@ -8,6 +8,7 @@ For all of these scripts, either clone the folder into your server (probably eas
 
  - **Rinstaller.sh** - create a file like this in your server and use it to install packages. That way, the packages will be available for all users.
   - **chek.sh** - a file that you can use to see if an R script is running... if it's running, then do nothing... if it's NOT running, then it assigns the working directory, and restarts the file.
+  - **forUpdates.sh** - Use this file when the server requires updates... it first updates, then upgrades, tehn updates the distro(? - I think), then it autoremoves stuff that's no longer required, then autocleans. I'm debating throwing a `reboot` in there... prolly shouldn't... but it would be convenient. Anyway, this is how you grab all that stuff in the correct order. I copypasted this from somewhere but can't find it anymore... if anyone knows where I stole it from pls raise an issue and I'll add the source.
 
 ## Tips:
 **Set up R cron jobs like this:**
