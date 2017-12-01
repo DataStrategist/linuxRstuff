@@ -39,5 +39,9 @@ sudo rstudio-server restart
 ## Write access:
 `sudo chmod -R 750 FileOrFolder`
 
-where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "execute", and0 stands for "no permission.". Add them up to come up w/ the number. The three numbers stand for "user", "group", and "other". the `-R` means Recursive (as in the case of a folder).
+where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "execute", and0 stands for "no permission.". Add them up to come up w/ the number. The three numbers stand for "user", "group", and "other". the `-R` means Recursive (as in the case of a folder). Read more [here](https://www.computerhope.com/unix/uchmod.htm): 
 
+## Database stuff
+To see more about installing ODBC sources in a db, check out [my blog article](http://amitkohli.com/how-to-move-odbc-dsn-information-from-one-computer-to-another/).
+`odbcinst -s -q` Checks whether an ODBC Source has been installed or not
+`isql -v mydsn myusername mypassword` Establishes a connection to the db (as a minimum test to see if all the credentials work).
