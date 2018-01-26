@@ -45,3 +45,8 @@ where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "ex
 To see more about installing ODBC sources in a db, check out [my blog article](http://amitkohli.com/how-to-move-odbc-dsn-information-from-one-computer-to-another/).
 `odbcinst -s -q` Checks whether an ODBC Source has been installed or not
 `isql -v mydsn myusername mypassword` Establishes a connection to the db (as a minimum test to see if all the credentials work).
+
+## Setting up links
+In order to sync all files from one folder to the other, you need to set up a symlink (use case is for example to get data to copy into a folder that the dropbox daemon is watching.
+
+ln -s SOURCE_FOLDER FINAL_FOLDER
