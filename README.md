@@ -50,3 +50,12 @@ To see more about installing ODBC sources in a db, check out [my blog article](h
 In order to sync all files from one folder to the other, you need to set up a symlink (use case is for example to get data to copy into a folder that the dropbox daemon is watching.
 
 ln -s SOURCE_FOLDER FINAL_FOLDER
+
+## Git stuff
+There's so much to say... let's keep it simple:
+`sudo git stash` - Just bulldoze whatever local changes... a bit safer than the following option. Do this when you have a script running on the server that may have modified some tracked output files.... and you don't really want to deal with it.
+`sudo git reset --hard` - Goes back to the last commit, this demolishes all local changes with no record. Careful!
+
+When you have a merge conflict:
+`git status` to see what's conflicting, and then:
+`git checkout --ours FILE.html` to accept the new change... or `theirs` to accept the server version. 
