@@ -59,3 +59,9 @@ There's so much to say... let's keep it simple:
 When you have a merge conflict:
 `git status` to see what's conflicting, and then:
 `git checkout --ours FILE.html` to accept the new change... or `theirs` to accept the server version. 
+
+## Dropbox
+Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
+
+`~/utils/dropbox.py exclude add *`      (exclude EVERYTHING from sync)
+`~/utils/dropbox.py exclude remove DIR` (remove DIR from exclusion list)
