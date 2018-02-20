@@ -16,6 +16,8 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 This way you'll have a log file that outputs the contents of each run.
 
+`netstat -tulnp | grep "LISTEN"` to list open ports
+
 ## Locale stuff:
 `sudo locale-gen en_US` Set a locale. Sometimes for some reason this needs to be manually edited in a few other places... for example: `sudo nano /etc/default/locale` and `sudo nano /etc/environment`, and then finally, you have the big one `sudo dpkg-reconfigure locales`.
 
