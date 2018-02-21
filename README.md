@@ -16,10 +16,20 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 This way you'll have a log file that outputs the contents of each run.
 
-`netstat -tulnp | grep "LISTEN"` to list open ports
+## Port stuff
+If you have [ufw](https://help.ubuntu.com/lts/serverguide/firewall.html) installed, to open or close a port:
+
+`sudo ufw allow XXX` (or `deny`)
+
+to list open ports
+
+`netstat -tulnp | grep "LISTEN"` 
 
 ## Locale stuff:
-`sudo locale-gen en_US` Set a locale. Sometimes for some reason this needs to be manually edited in a few other places... for example: `sudo nano /etc/default/locale` and `sudo nano /etc/environment`, and then finally, you have the big one `sudo dpkg-reconfigure locales`.
+
+`sudo locale-gen en_US` Set a locale. Sometimes for some reason this needs to be manually edited in a few other places... for example: 
+
+`sudo nano /etc/default/locale` and `sudo nano /etc/environment`, and then finally, you have the big one `sudo dpkg-reconfigure locales`.
 
 After you're done, you need to `sudo reboot`. Then you can check your new stuff using `locale` or `env`.
 
@@ -45,7 +55,9 @@ where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "ex
 
 ## Database stuff
 To see more about installing ODBC sources in a db, check out [my blog article](http://amitkohli.com/how-to-move-odbc-dsn-information-from-one-computer-to-another/).
+
 `odbcinst -s -q` Checks whether an ODBC Source has been installed or not
+
 `isql -v mydsn myusername mypassword` Establishes a connection to the db (as a minimum test to see if all the credentials work).
 
 ## Setting up links
@@ -55,10 +67,14 @@ ln -s SOURCE_FOLDER FINAL_FOLDER
 
 ## Git stuff
 There's so much to say... let's keep it simple:
-`sudo git stash` - Just bulldoze whatever local changes... a bit safer than the following option. Do this when you have a script running on the server that may have modified some tracked output files.... and you don't really want to deal with it.
+
+`sudo git stash` - Just bulldoze whatever local changes... a bit safer than the following option. Do this when you have a script running 
+on the server that may have modified some tracked output files.... and you don't really want to deal with it.
+
 `sudo git reset --hard` - Goes back to the last commit, this demolishes all local changes with no record. Careful!
 
 When you have a merge conflict:
+
 `git status` to see what's conflicting, and then:
 `git checkout --ours FILE.html` to accept the new change... or `theirs` to accept the server version. 
 
@@ -71,6 +87,7 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
 
 ## Web srvr stuff
  If you have lighttpd as a web server... 
- `/etc/init.d/lighttpd stop`
+
+`/etc/init.d/lighttpd stop`
  
  `/etc/init.d/lighttpd start`
