@@ -66,4 +66,11 @@ When you have a merge conflict:
 Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
 
 `~/utils/dropbox.py exclude add *`      (exclude EVERYTHING from sync)
+
 `~/utils/dropbox.py exclude remove DIR` (remove DIR from exclusion list)
+
+## Web srvr stuff
+ If you have lighttpd as a web server... 
+ `/etc/init.d/lighttpd stop`
+ 
+ `/etc/init.d/lighttpd start`
