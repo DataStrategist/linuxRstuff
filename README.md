@@ -91,3 +91,17 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
 `/etc/init.d/lighttpd stop`
  
  `/etc/init.d/lighttpd start`
+
+## System Resources stuff
+
+To see how much memory and swap space you have available you can type `top` but it's much better if you install and then run `htop`.
+
+To see how much hard drive room you have you can type:
+
+`df -h`
+
+Or to have more details, 
+
+`sudo ncdu /`
+
+The `sudo` and the `/` are important otherwise it'll only give you the space allocation of the current folder. I found that some packages really abuse the `/tmp` file, but it's not necessary to use some hardcore tmp cleaner, it's enough to reboot the server.
