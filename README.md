@@ -57,6 +57,7 @@ where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "ex
 To see more about installing ODBC sources in a db, check out [my blog article](http://amitkohli.com/how-to-move-odbc-dsn-information-from-one-computer-to-another/).
 
 `odbcinst -s -q` Checks whether an ODBC Source has been installed or not
+`odbcinst -d -q` Shows the actual ODBC sources
 
 `isql -v mydsn myusername mypassword` Establishes a connection to the db (as a minimum test to see if all the credentials work).
 
