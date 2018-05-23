@@ -42,12 +42,15 @@ After you're done, you need to `sudo reboot`. Then you can check your new stuff 
 ## START STOP RESTART COMMANDS
 
 ```
-sudo systemctl start shiny-server
+sudo systemctl status shiny-server
 sudo systemctl stop shiny-server
+sudo systemctl start shiny-server
 sudo systemctl restart shiny-server
+sudo systemctl status shiny-server
 ```
 
 ```
+sudo rstudio-server status
 sudo rstudio-server start
 sudo rstudio-server stop
 sudo rstudio-server restart
@@ -56,7 +59,9 @@ sudo rstudio-server restart
 ## ShinyServer stuff
 
 `sudo nano /etc/shiny-server/shiny-server.conf` Shortcut to edit shiny's config folder
+
 `tail -n 20 /var/log/shiny-server.log` see last 20 lines of the shiny-server log. If you want to see the logs for the individual apps, these are in `cd /var/log/shiny-server/` and then dig around.
+
 
 ## Write access:
 `sudo chmod -R 750 FileOrFolder`
