@@ -53,6 +53,11 @@ sudo rstudio-server stop
 sudo rstudio-server restart
 ```
 
+## ShinyServer stuff
+
+`sudo nano /etc/shiny-server/shiny-server.conf` Shortcut to edit shiny's config folder
+`tail -n 20 /var/log/shiny-server.log` see last 20 lines of the shiny-server log. If you want to see the logs for the individual apps, these are in `cd /var/log/shiny-server/` and then dig around.
+
 ## Write access:
 `sudo chmod -R 750 FileOrFolder`
 
