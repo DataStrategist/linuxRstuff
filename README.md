@@ -107,6 +107,21 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
 `/etc/init.d/lighttpd stop`
  
  `/etc/init.d/lighttpd start`
+ 
+ ... or nginx
+ `sudo nano /etc/nginx/sites-enabled/default` to edit configuration 
+ 
+ To enable nginx basic password protection (not sure if all of this is necessary, but it does appear to be sufficient):
+ 
+ ```
+  root /usr/share/nginx/html;
+  index index.html index.htm index.nginx-debian.html;
+  server_name localhost;
+  auth_basic "Restricted Content";
+  auth_basic_user_file /etc/nginx/.htpasswd;
+```
+
+`sudo service nginx restart` restart
 
 ## System Resources stuff
 
