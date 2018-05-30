@@ -11,6 +11,9 @@ For all of these scripts, either clone the folder into your server (probably eas
   - **forUpdates.sh** - Use this file when the server requires updates... it first updates, then upgrades, tehn updates the distro(? - I think), then it autoremoves stuff that's no longer required, then autocleans. I'm debating throwing a `reboot` in there... prolly shouldn't... but it would be convenient. Anyway, this is how you grab all that stuff in the correct order. I copypasted this from somewhere but can't find it anymore... if anyone knows where I stole it from pls raise an issue and I'll add the source.
 
 ## Tips:
+
+Find files anywhere (starting from current location `sudo find . -name file.extension`
+
 **Set up R cron jobs like this:**
 `40 * * * * Rscript "path/file.R" >> /home/YourLinuxUsername/NewLogger.log 2>&1`
 
