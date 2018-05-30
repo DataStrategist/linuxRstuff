@@ -82,7 +82,7 @@ To see more about installing ODBC sources in a db, check out [my blog article](h
 ## Setting up links
 In order to sync all files from one folder to the other, you need to set up a symlink (use case is for example to get data to copy into a folder that the dropbox daemon is watching.
 
-ln -s SOURCE_FOLDER FINAL_FOLDER
+`ln -s SOURCE_FOLDER FINAL_FOLDER`
 
 ## Git stuff
 There's so much to say... let's keep it simple:
