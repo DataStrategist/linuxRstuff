@@ -112,8 +112,13 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
  `/etc/init.d/lighttpd start`
  
  ... or nginx
- `sudo nano /etc/nginx/sites-enabled/default` to edit configuration 
  
+ `nginx -V` To see general configuarion options, like who installed, where etc. For me:
+ 
+   `sudo nano /etc/nginx/sites-enabled/default` to edit configuration
+   `/usr/share/nginx ` thinks it's the site, but it's actually here: `/var/www/html/index.nginx-debian.html`
+   `/var/log/nginx/access.log` log file
+  
  To enable nginx basic password protection (not sure if all of this is necessary, but it does appear to be sufficient):
  
  ```
