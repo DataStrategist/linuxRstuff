@@ -27,6 +27,8 @@ This way you'll have a log file that outputs the contents of each run.
 
 `gpasswd -a x sudo` Add user to sudo group
 
+`sudo chown -R x:x /FOLDER` Give a user permission over a folder
+
 ## Port stuff
 If you have [ufw](https://help.ubuntu.com/lts/serverguide/firewall.html) installed, to open or close a port:
 
