@@ -22,7 +22,10 @@ This way you'll have a log file that outputs the contents of each run.
 ## User stuff
 
 `useradd x` add a user called x. Might have to sudo
+
 `passwd x` change the password for x
+
+`gpasswd -a x sudo` Add user to sudo group
 
 ## Port stuff
 If you have [ufw](https://help.ubuntu.com/lts/serverguide/firewall.html) installed, to open or close a port:
