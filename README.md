@@ -27,7 +27,13 @@ This way you'll have a log file that outputs the contents of each run.
 
 `gpasswd -a x sudo` Add user to sudo group
 
-`sudo chown -R x:x /FOLDER` Give a user permission over a folder
+`sudo chown -R x:y /FOLDER` Transfer ownership a file/folder to user `x` and/or group `y` CAREFUL!
+
+`sudo groupadd y` Add a group
+
+`sudo usermod -aG y x` add user `x` to group `y`
+
+
 
 ## Port stuff
 If you have [ufw](https://help.ubuntu.com/lts/serverguide/firewall.html) installed, to open or close a port:
