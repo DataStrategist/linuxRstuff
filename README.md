@@ -21,7 +21,7 @@ This way you'll have a log file that outputs the contents of each run.
 
 ## User stuff
 
-`less /etc/passwd` display all users
+`cut -d: -f1 /etc/passwd` display all users
 
 `useradd x` add a user called x. Might have to sudo
 
