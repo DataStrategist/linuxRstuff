@@ -25,6 +25,8 @@ This way you'll have a log file that outputs the contents of each run.
 
 `useradd x` add a user called x. Might have to sudo
 
+`sudo adduser x --force-badname` is the better prefered way to do it... if you do the other way RStudio might be upset.
+
 `passwd x` change the password for x
 
 `gpasswd -a x sudo` Add user to sudo group
