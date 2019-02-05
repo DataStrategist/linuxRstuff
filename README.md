@@ -165,3 +165,5 @@ To for example single out Specific items we can also combine with `awk` command.
 `df -hl | awk '/sda2/{print $2,$5,$4}'`
 
 The `sudo` and the `/` are important otherwise it'll only give you the space allocation of the current folder. I found that some packages really abuse the `/tmp` file, but it's not necessary to use some hardcore tmp cleaner, it's enough to reboot the server.
+
+Another way is to get yourself to `/` and then type `sudo du -h --max-depth=1` to see the biggest culprits
