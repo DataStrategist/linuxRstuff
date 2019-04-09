@@ -80,6 +80,7 @@ sudo rstudio-server restart
 
 `tail -n 20 /var/log/shiny-server.log` see last 20 lines of the shiny-server log. If you want to see the logs for the individual apps, these are in `cd /var/log/shiny-server/` and then dig around.
 
+`/etc/shiny-server/passwd` is the location to create new Shiny users
 
 ## Write access:
 `sudo chmod -R 750 FileOrFolder`
