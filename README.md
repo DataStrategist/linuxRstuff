@@ -134,8 +134,9 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
  `nginx -V` To see general configuarion options, like who installed, where etc. For me:
  
    `sudo nano /etc/nginx/sites-enabled/default` to edit configuration
+   `sudo nano /etc/nginx/nginx.conf` for other configuration stuff
    
-   `/usr/share/nginx ` thinks it's the site, but it's actually here: `/var/www/html/index.nginx-debian.html`
+   `/usr/share/nginx ` thinks it's the site, but it might be here: `/var/www/html/index.nginx-debian.html`
    
    `/var/log/nginx/access.log` log file
   
