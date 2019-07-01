@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>simple</h:title>
+    <model>
+      <instance>
+        <simple id="simple">
+          <name/>
+          <age/>
+          <picture/>
+          <has_children/>
+          <gps/>
+          <web_browsers/>
+          <meta>
+            <instanceID/>
+          </meta>
+        </simple>
+      </instance>
+      <bind nodeset="/simple/name" type="string"/>
+      <bind nodeset="/simple/age" type="int"/>
+      <bind nodeset="/simple/picture" type="binary"/>
+      <bind nodeset="/simple/has_children" type="select1"/>
+      <bind nodeset="/simple/gps" type="geopoint"/>
+      <bind nodeset="/simple/web_browsers" type="select"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/simple/meta/instanceID" readonly="true()" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/simple/name">
+      <label>1. What is your name?</label>
+    </input>
+    <input ref="/simple/age">
+      <label>2. How old are you?</label>
+    </input>
+    <upload mediatype="image/*" ref="/simple/picture">
+      <label>3. May I take your picture?</label>
+    </upload>
+    <select1 ref="/simple/has_children">
+      <label>4. Do you have any children?</label>
+      <item>
+        <label>no</label>
+        <value>0</value>
+      </item>
+      <item>
+        <label>yes</label>
+        <value>1</value>
+      </item>
+    </select1>
+    <input ref="/simple/gps">
+      <label>5. Record your GPS coordinates.</label>
+      <hint>GPS coordinates can only be collected when outside.</hint>
+    </input>
+    <select ref="/simple/web_browsers">
+      <label>6. What web browsers do you use?</label>
+      <item>
+        <label>Mozilla Firefox</label>
+        <value>firefox</value>
+      </item>
+      <item>
+        <label>Google Chrome</label>
+        <value>chrome</value>
+      </item>
+      <item>
+        <label>Internet Explorer</label>
+        <value>ie</value>
+      </item>
+      <item>
+        <label>Safari</label>
+        <value>safari</value>
+      </item>
+    </select>
+  </h:body>
+</h:html>

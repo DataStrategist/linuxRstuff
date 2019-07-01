@@ -6,7 +6,7 @@ read varname
 if [[ $varname = *"/"* ]];  then
         echo --------------------------------
         echo Installing $varname from GitHub
-        sudo su - -c \\"R -e \"devtools::install_github('$varname')\"\\"
+        sudo su - -c \\"R -e \"devtools::install_github('$varname', force = TRUE)\"\\"
 else
         echo --------------------------------
         echo Grabbin $varname from CRAN
