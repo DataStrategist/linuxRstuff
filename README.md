@@ -14,7 +14,7 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 ## Tips:
 
-Find files anywhere (starting from current location `sudo find . -name file.extension`
+Find files anywhere (starting from current location `sudo find . -name "*.fileExtension"` (or whatevs))
 
 **Set up R cron jobs like this:**
 `40 * * * * Rscript "path/file.R" >> /home/YourLinuxUsername/NewLogger.log 2>&1`
