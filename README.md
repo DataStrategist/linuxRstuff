@@ -171,3 +171,21 @@ To for example single out Specific items we can also combine with `awk` command.
 The `sudo` and the `/` are important otherwise it'll only give you the space allocation of the current folder. I found that some packages really abuse the `/tmp` file, but it's not necessary to use some hardcore tmp cleaner, it's enough to reboot the server.
 
 Another way is to get yourself to `/` and then type `sudo du -h --max-depth=1` to see the biggest culprits
+
+## copying stuff to/from the server
+
+Upload the file yourFile.xyz to your home directory on the VM
+
+`scp yourFile.xyz username@cerzheprd03.its.auckland.ac.nz:~/.`
+ 
+Upload the folder yourFolder to your home directory on the VM
+
+`scp -r yourFolder username@cerzheprd03.its.auckland.ac.nz:~/.`
+
+Download the file ~/yourFile.xyz to your home directory on your computer
+
+`scp username@cerzheprd03.its.auckland.ac.nz:~/yourFile.xyz ~/.`
+ 
+Download the folder yourFolder to your home directory on your computer
+
+`scp -r username@cerzheprd03.its.auckland.ac.nz:~/yourFolder ~/.`
