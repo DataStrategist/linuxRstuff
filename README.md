@@ -200,3 +200,8 @@ sudo apt-get upgrade
 
 sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
 sudo apt-get install r-base r-base-core r-base-dev
+
+## and now libraries
+sudo Rscript -e 'install.packages("tidyverse")'
+'''
+
