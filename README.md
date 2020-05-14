@@ -189,3 +189,14 @@ Download the file ~/yourFile.xyz to your home directory on your computer
 Download the folder yourFolder to your home directory on your computer
 
 `scp -r username@cerzheprd03.its.auckland.ac.nz:~/yourFolder ~/.`
+
+## Setup
+
+So installing on a fresh install is annoying. I think this is the best way to do it.
+
+```
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
+sudo apt-get install r-base r-base-core r-base-dev
