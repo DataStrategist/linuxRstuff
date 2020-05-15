@@ -202,6 +202,9 @@ sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
 sudo apt-get install r-base r-base-core r-base-dev
 
 ## and now libraries
+##  inside sudo R
+install.packages("readr", dependencies=TRUE, INSTALL_opts = c('--no-lock'))
+## or outside be like:
 sudo Rscript -e 'install.packages("tidyverse")'
-'''
+```
 
