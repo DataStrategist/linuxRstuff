@@ -115,6 +115,11 @@ When you have a merge conflict:
 `git status` to see what's conflicting, and then:
 `git checkout --ours FILE.html` to accept the new change... or `theirs` to accept the server version. 
 
+If your credentials get forgotten or corrupted, you should first clear credentials, and then re-cache them:
+
+`git credential-cache exit`
+`git config --global credential.helper 'cache --timeout 28800'` (this is 8 hrs)
+
 ## Dropbox
 Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
 
