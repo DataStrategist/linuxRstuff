@@ -213,3 +213,10 @@ install.packages("readr", dependencies=TRUE, INSTALL_opts = c('--no-lock'))
 sudo Rscript -e 'install.packages("tidyverse")'
 ```
 
+## Gargle stuff
+
+ - If the credentials get messed up, delete the cached credentials here: `~/.R/gargle/gargle-oauth`
+ - To see more about gargle errors, use `options(gargle_quiet = FALSE)`
+ - To cache the credential, we have to use `googledrive::drive_auth(email = "av.dbbuddy@gmail.com", use_oob = T)`, after which non-interactive authentication should work.
+ - other than the normal problem page, you can also refer to this https://gargle.r-lib.org/articles/auth-from-web.html#but-i-didnt-need-oob-yesterday, where you'll see: `sudo lsof -i :1410` will show "zombie" jobs.
+
