@@ -118,6 +118,9 @@ When you have a merge conflict:
 If your credentials get forgotten or corrupted, you should first clear credentials, and then re-cache them:
 
 `git credential-cache exit`
+
+`git config --global credential.helper cache`
+
 `git config --global credential.helper 'cache --timeout 28800'` (this is 8 hrs)
 
 To clean up your environment:
