@@ -184,6 +184,14 @@ The `sudo` and the `/` are important otherwise it'll only give you the space all
 
 Another way is to get yourself to `/` and then type `sudo du -h --max-depth=1` to see the biggest culprits
 
+## Is your process running
+
+Once you have stuff running on the server, you can check to see if it's runnning. A few ways:
+
+`htop` and then sort by STATE (by pressing F6). Everything you see w/ an `R` is running, `S` is stopped.
+
+`sudo ps aux | grep STUFF` will check for the status of `STUFF` to see if its running or not. 
+
 ## copying stuff to/from the server
 
 Upload the file yourFile.xyz to your home directory on the VM
