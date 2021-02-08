@@ -184,6 +184,37 @@ The `sudo` and the `/` are important otherwise it'll only give you the space all
 
 Another way is to get yourself to `/` and then type `sudo du -h --max-depth=1` to see the biggest culprits
 
+And here is a code block to show how much memory, swap space etc you have:
+
+```
+AVDGcc::createSystemHealthButtons()
+memSwap <- system("vmstat -s", intern = TRUE)
+  FreeMem <- as.numeric(gsub("\\D", "", grep("free memory", memSwap, value = TRUE)))
+  TotMem <- as.numeric(gsub("\\D", "", grep("total memory", memSwap, value = TRUE)))
+  MemPer <- round(FreeMem / TotMem * 100, 1)
+  MemPer <- TileMaker::solo_gradient_box(MemPer, paste(MemPer, "% mem av (LEAP)", sep = ""), target = 100,
+                              thresholdHigh = 50, thresholdLow = 10, hide_value = TRUE,
+                              textModifier = "span")
+
+  FreeSw <- as.numeric(gsub("\\D", "", grep("free swap", memSwap, value = TRUE)))
+  TotSw <- as.numeric(gsub("\\D", "", grep("total swap", memSwap, value = TRUE)))
+  SwPer <- round(FreeSw / TotSw * 100, 1)
+  SwPer <- solo_gradient_box(SwPer, paste(SwPer, "% swap av (LEAP)", sep = ""), target = 100,
+                             thresholdHigh = 50, thresholdLow = 10, hide_value = TRUE,
+                             textModifier = "span")
+  SpaceUsed <- system("df -hl | awk '/sda1/{print $5}'", intern = TRUE) %>%
+    gsub("%", "", x = .) %>%
+    as.numeric()
+  SpPer <- solo_gradient_box(SpaceUsed, paste(SpaceUsed, "% HD space used (LEAP)", sep = ""), target = 0,
+                             thresholdHigh = 25, thresholdLow = 50, hide_value = TRUE,
+                             textModifier = "span")
+
+  SystemButtons <- TileMaker::div_maker(subtitle = "System Health", textModifier = "p",
+                            MemPer,
+                            SwPer,
+                            SpPer)
+```
+
 ## Is your process running
 
 Once you have stuff running on the server, you can check to see if it's runnning. A few ways:
