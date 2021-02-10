@@ -124,8 +124,18 @@ If your credentials get forgotten or corrupted, you should first clear credentia
 `git config --global credential.helper 'cache --timeout 28800'` (this is 8 hrs)
 
 To clean up your environment:
+
 `git remote prune origin` will delete all unused branches on your remote (assuming it's called origin)
 `git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d` will delete all your useless local branches.
+
+If you ever commit something by accident that you want removed from the git record (for example, some files in the `.Rproj.user` folder,), try one of these:
+
+```
+cd .Rproj.user/
+git rm --cached -R .
+cd ..
+git rm --cached -r .Rproj.user
+```
 
 ## Dropbox
 Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
