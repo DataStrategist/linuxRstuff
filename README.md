@@ -6,7 +6,9 @@ a collection of random scripts and notes that help R-Users working in Linux. I h
 ## Scripts:
 For all of these scripts, either clone the folder into your server (probably easiest), or `touch` a new file, then edit that file and drop the code in.
 
-**but no matter what you do** Remember to make the file executable by using `chmod 777 filename`. You can then jump into the folder containing these files and run it like this: `./file.sh`
+**but no matter what you do** Remember to make the file executable by using `chmod 777 filename` *. You can then jump into the folder containing these files and run it like this: `./file.sh`
+
+\* 777 gives EVERYBODY on the server the right to edit your file is generally seen as bad practice. Therefore this advice is more suited for sole data scientists or a very small team, not for large teams or production code.
 
  - **Rinstaller.sh** - create a file like this in your server and use it to install packages. That way, the packages will be available for all users.
   - **chek.sh** - a file that you can use to see if an R script is running... if it's running, then do nothing... if it's NOT running, then it assigns the working directory, and restarts the file.
@@ -16,10 +18,61 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 Find files anywhere (starting from current location `sudo find . -name "*.fileExtension"` (or whatevs))
 
-**Set up R cron jobs like this:**
+### Run stuff on the server
+
+You can either run stuff on a schedule, or design a job that will make it run continuously. To set up jobs on a schedule, use the `[crontab](https://crontab.guru/)`. 
+
+To view the crontab, list it with `crontab -l`, and to edit it, go with `crontab -e`. Note. DO NOT `sudo crontab -e` or you'll create a job w/ sudo permissions which is a bit dangerous.
+
+#### Set up R cron jobs like this:
 `40 * * * * Rscript "path/file.R" >> /home/YourLinuxUsername/NewLogger.log 2>&1`
 
-This way you'll have a log file that outputs the contents of each run.
+This way you'll have a log file that outputs the contents of each run (errors and results). Or you could build a bashfile for more complex logging (see https://github.com/DataStrategist/amitFuncs).
+
+#### Set up a linux service
+
+If we want something to be running continuously and runs like a linux service itself, we can create a service. Follow these steps.
+
+1. create the service file: `sudo touch /etc/systemd/system/SERVICENAME.service`
+2. edit it: `sudo nano /etc/systemd/system/SERVICENAME.service`
+
+Fill the file w/ these contents (where SERVICENAME is how you'd like to refer to this "job", PATH_TO_R_SCRIPT is the path to the script you want to run, and SCRIPT_TO_RUN is the name of the script inside PATH_TO_R_SCRIPT you'd like to run.
+
+```
+[Unit]
+Description=SERVICENAME
+
+[Service]
+Type=simple
+User=amit
+ExecStart=/usr/bin/Rscript "/PATH_TO_R_SCRIPT/SCRIPT_TO_RUN.R"
+Restart=always
+WorkingDirectory= /PATH_TO_R_SCRIPT/
+Environment="LANG=en_US.UTF-8"
+
+
+[Install]
+WantedBy=multi-user.target
+```
+Where each part does this:
+
+ - **Description** is what the thingie does
+ - **Type** says how to run it, and “simple” is the default… but check the documentation if u wanna do something more fancy
+ - **User** this defines what user is running the service. This is a bit of extra insurance, in case you installed a package as a yourself and not as a superuser (which is the correct way)
+ - **ExecStart** is the command to run
+ - **Restart** by specifying this to “always”, if the script ever goes down, it’ll automatically restart and start scraping again! 🙂 Super cool, no? WARNING: Not sure about whether this can cause trouble… if twitter is for some reason pissed off and doesn’t want to serve tweets to you anymore, not sure if CONSTANTLY restarting this could get you in trouble. If I get banned, I’ll letchu know… stay tuned)
+ - **WorkingDirectory** This part is where the magic happens. Remember earlier on we were worried and worried about HOW to pass the working directory to the R script? This is how!! Now we don’t have to worry about paths on the server anymore!
+ - **Environment** is the language
+ - **WantedBy** I have no idea what this does and don’t care because it works!
+
+
+ 3. Now we need to restart the daemon that picks up services? `sudo systemctl daemon-reload`
+ 4. Now start the service!! `sudo systemctl start SERVICENAME`
+ 5. Now your service is running! You can check the status of it using: `systemctl status SERVICENAME.service`
+
+
+
+
 
 ## User stuff
 
