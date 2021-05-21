@@ -1,5 +1,3 @@
-If you enjoy this, [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/DataStrategist)! It's free and makes me happy. :-)
-
 # linuxRstuff
 a collection of random scripts and notes that help R-Users working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome.
 
