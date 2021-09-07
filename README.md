@@ -16,7 +16,7 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 Find files anywhere (starting from current location `sudo find . -name "*.fileExtension"` (or whatevs))
 
-Find files _containing_ specicif file contents: `grep -rnw '/path/to/somewhere/' -e 'pattern'`
+Find files _containing_ specific file contents: `grep -rnw '/path/to/somewhere/' -e 'pattern'`
 
 ### Run stuff on the server
 
