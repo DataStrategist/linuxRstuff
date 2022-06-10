@@ -1,10 +1,10 @@
-# linuxRstuff
-a collection of random scripts and notes that help R-Users working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome.
+# Linux for data science stuff
+a collection of random scripts and notes that help data scientists working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome. This is a perpetual work in progress.
 
 ## Scripts:
 For all of these scripts, either clone the folder into your server (probably easiest), or `touch` a new file, then edit that file and drop the code in.
 
-**but no matter what you do** Remember to make the file executable by using `chmod 777 filename` *. You can then jump into the folder containing these files and run it like this: `./file.sh`
+**regardless**, remember to make the file executable by using `chmod 777 filename` *. You can then jump into the folder containing these files and run it like this: `./file.sh`
 
 \* 777 gives EVERYBODY on the server the right to edit your file is generally seen as bad practice. Therefore this advice is more suited for sole data scientists or a very small team, not for large teams or production code.
 
@@ -71,9 +71,6 @@ Where each part does this:
  5. Now your service is running! You can check the status of it using: `systemctl status SERVICENAME.service`
 
 
-
-
-
 ## User stuff
 
 `cut -d: -f1 /etc/passwd` display all users
@@ -103,6 +100,8 @@ to list open ports
 
 `netstat -tulnp | grep "LISTEN"` 
 
+
+
 ## Locale stuff:
 
 `sudo locale-gen en_US` Set a locale. Sometimes for some reason this needs to be manually edited in a few other places... for example: 
@@ -110,6 +109,7 @@ to list open ports
 `sudo nano /etc/default/locale` and `sudo nano /etc/environment`, and then finally, you have the big one `sudo dpkg-reconfigure locales`.
 
 After you're done, you need to `sudo reboot`. Then you can check your new stuff using `locale` or `env`.
+
 
 
 ## START STOP RESTART COMMANDS
@@ -129,6 +129,7 @@ sudo rstudio-server stop
 sudo rstudio-server restart
 ```
 
+
 ## ShinyServer stuff
 
 `sudo nano /etc/shiny-server/shiny-server.conf` Shortcut to edit shiny's config folder
@@ -137,10 +138,14 @@ sudo rstudio-server restart
 
 `/etc/shiny-server/passwd` is the location to create new Shiny users
 
+
+
 ## Write access:
 `sudo chmod -R 750 FileOrFolder`
 
 where the numbers mean:4 stands for "read",2 stands for "write",1 stands for "execute", and0 stands for "no permission.". Add them up to come up w/ the number. The three numbers stand for "user", "group", and "other". the `-R` means Recursive (as in the case of a folder). Read more [here](https://www.computerhope.com/unix/uchmod.htm): 
+
+
 
 ## Database stuff
 To see more about installing ODBC sources in a db, check out [my blog article](http://amitkohli.com/how-to-move-odbc-dsn-information-from-one-computer-to-another/).
@@ -150,10 +155,14 @@ To see more about installing ODBC sources in a db, check out [my blog article](h
 
 `isql -v mydsn myusername mypassword` Establishes a connection to the db (as a minimum test to see if all the credentials work).
 
+
+
 ## Setting up links
 In order to sync all files from one folder to the other, you need to set up a symlink (use case is for example to get data to copy into a folder that the dropbox daemon is watching.
 
 `ln -s SOURCE_FOLDER FINAL_FOLDER`
+
+
 
 ## Git stuff
 There's so much to say... let's keep it simple:
@@ -189,6 +198,7 @@ git rm --cached -R .
 cd ..
 git rm --cached -r .Rproj.user
 ```
+
 
 ## Dropbox
 Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
@@ -227,6 +237,8 @@ Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) a
 
 `sudo service nginx restart` restart
 
+
+
 ## System Resources stuff
 
 To see how much memory and swap space you have available you can type `top` but it's much better if you install and then run `htop`.
@@ -250,7 +262,6 @@ Another way is to get yourself to `/` and then type `sudo du -h --max-depth=1` t
 And here is a code block to show how much memory, swap space etc you have:
 
 ```
-AVDGcc::createSystemHealthButtons()
 memSwap <- system("vmstat -s", intern = TRUE)
   FreeMem <- as.numeric(gsub("\\D", "", grep("free memory", memSwap, value = TRUE)))
   TotMem <- as.numeric(gsub("\\D", "", grep("total memory", memSwap, value = TRUE)))
@@ -278,6 +289,8 @@ memSwap <- system("vmstat -s", intern = TRUE)
                             SpPer)
 ```
 
+
+
 ## Is your process running
 
 Once you have stuff running on the server, you can check to see if it's runnning. A few ways:
@@ -285,6 +298,8 @@ Once you have stuff running on the server, you can check to see if it's runnning
 `htop` and then sort by STATE (by pressing F6). Everything you see w/ an `R` is running, `S` is stopped.
 
 `sudo ps aux | grep STUFF` will check for the status of `STUFF` to see if its running or not. 
+
+
 
 ## copying stuff to/from the server
 
@@ -304,7 +319,9 @@ Download the folder yourFolder to your home directory on your computer
 
 `scp -r username@cerzheprd03.its.auckland.ac.nz:~/yourFolder ~/.`
 
-## Setup
+
+
+## Setup R
 
 So installing on a fresh install is annoying. I think this is the best way to do it.
 
@@ -322,6 +339,7 @@ install.packages("readr", dependencies=TRUE, INSTALL_opts = c('--no-lock'))
 sudo Rscript -e 'install.packages("tidyverse")'
 ```
 
+
 ## Gargle stuff
 
  - If the credentials get messed up, delete the cached credentials here: `~/.R/gargle/gargle-oauth`
@@ -329,4 +347,18 @@ sudo Rscript -e 'install.packages("tidyverse")'
  - `sheets_deauth()`
  - To cache the credential, we have to use `googledrive::drive_auth(email = "av.dbbuddy@gmail.com", use_oob = T)`, after which non-interactive authentication should work.
  - other than the normal problem page, you can also refer to this https://gargle.r-lib.org/articles/auth-from-web.html#but-i-didnt-need-oob-yesterday, where you'll see: `sudo lsof -i :1410` will show "zombie" jobs.
+
+## Python virtual environments
+
+(there are several types of virtual environments... but I like conda ones). You don't need anaconda, you can use miniconda for this
+
+ 
+ - `conda create -n THINGIE python=3.9` - create a virtual environment called THINGIE, initialized w/ python 3.9
+ - `conda env remove -n THINGIE` - removes the virtual environment
+ - `conda activate THINGIE` (or `deactive`) - Activates/deactivates a virtual environment
+ - `conda create -n myenv python=3.9 scipy=0.17.3 astroid babel`  - you can keep specifing requirenments, like this... but can be unweildy
+ 
+ - `conda env create -f environment.yml` - you can use a yml file to build an environment based on an existing configuration.
+ - (be inside an environment) `conda env export > environment.yml` - Exports the whole environment into a yml file (for portability). HOWEVER... spacy language models do screw this up... so instead of  `en-core-web-md`, you should write: `spacy-model-en_core_web_md` (I THINK?)
+ - 
 
