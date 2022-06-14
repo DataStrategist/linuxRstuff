@@ -359,6 +359,7 @@ sudo Rscript -e 'install.packages("tidyverse")'
  - `conda create -n myenv python=3.9 scipy=0.17.3 astroid babel`  - you can keep specifing requirenments, like this... but can be unweildy
  
  - `conda env create -f environment.yml` - you can use a yml file to build an environment based on an existing configuration.
- - (be inside an environment) `conda env export > environment.yml` - Exports the whole environment into a yml file (for portability). HOWEVER... spacy language models do screw this up... so instead of  `en-core-web-md`, you should write: `spacy-model-en_core_web_md` (I THINK?)
- - 
+ - (be inside an environment) `conda env export > environment.yml` - Exports the whole environment into a yml file (for portability). ~~HOWEVER... spacy language models do screw this up... so instead of  `en-core-web-md`, you should write: `spacy-model-en_core_web_md` but above the pip (I THINK?)~~. Either:
+   -  a) delete the language library, develop a shell-script to activate the environment & then download the model. 
+   -  b) use docker :)
 
