@@ -1,6 +1,25 @@
 # Linux for data science stuff
 a collection of random scripts and notes that help data scientists working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome. This is a perpetual work in progress.
 
+## Linux libs to install to simplify installing R libs: (from: https://datawookie.dev/blog/2022/08/linux-packages-for-r/)
+
+```
+sudo apt update
+
+sudo apt install -q \
+  libcurl4-openssl-dev \
+  libssl-dev \
+  libxml2-dev \
+  libfontconfig1-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
+  libfreetype6-dev \
+  libpng-dev \
+  libtiff5-dev \
+  libjpeg-dev \
+  libpq-dev
+```
+
 ## Scripts:
 For all of these scripts, either clone the folder into your server (probably easiest), or `touch` a new file, then edit that file and drop the code in.
 
