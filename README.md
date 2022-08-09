@@ -1,7 +1,8 @@
 # Linux for data science stuff
 a collection of random scripts and notes that help data scientists working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome. This is a perpetual work in progress.
 
-## Linux libs to install to simplify installing R libs: (from: https://datawookie.dev/blog/2022/08/linux-packages-for-r/)
+## Linux libs to install to simplify installing R libs: 
+(from: https://datawookie.dev/blog/2022/08/linux-packages-for-r/)
 
 ```
 sudo apt update
