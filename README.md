@@ -1,26 +1,6 @@
 # Linux for data science stuff
 a collection of random scripts and notes that help data scientists working in Linux. I have NO idea what the hell I'm doing... only gain insight by headbutting problems till they break... so pull-requests, comments, issues are welcome. This is a perpetual work in progress.
 
-## Linux libs to install to simplify installing R libs: 
-(from: https://datawookie.dev/blog/2022/08/linux-packages-for-r/)
-
-```
-sudo apt update
-
-sudo apt install -q \
-  libcurl4-openssl-dev \
-  libssl-dev \
-  libxml2-dev \
-  libfontconfig1-dev \
-  libharfbuzz-dev \
-  libfribidi-dev \
-  libfreetype6-dev \
-  libpng-dev \
-  libtiff5-dev \
-  libjpeg-dev \
-  libpq-dev
-```
-
 ## Scripts:
 For all of these scripts, either clone the folder into your server (probably easiest), or `touch` a new file, then edit that file and drop the code in.
 
@@ -349,7 +329,19 @@ So installing on a fresh install is annoying. I think this is the best way to do
 sudo apt-get update
 sudo apt-get upgrade
 
-sudo apt-get install libcurl4-openssl-dev libssl-dev libxml2-dev
+sudo apt install -q \
+  libcurl4-openssl-dev \
+  libssl-dev \
+  libxml2-dev \
+  libfontconfig1-dev \
+  libharfbuzz-dev \
+  libfribidi-dev \
+  libfreetype6-dev \
+  libpng-dev \
+  libtiff5-dev \
+  libjpeg-dev \
+  libpq-dev
+
 sudo apt-get install r-base r-base-core r-base-dev
 
 ## and now libraries
@@ -358,6 +350,8 @@ install.packages("readr", dependencies=TRUE, INSTALL_opts = c('--no-lock'))
 ## or outside be like:
 sudo Rscript -e 'install.packages("tidyverse")'
 ```
+
+or use the [Rinstaller]([url](https://github.com/DataStrategist/linuxRstuff/blob/master/Rinstaller.sh)) shell script in this repo. For installing from CRAN, just write the repo name, from github just write `account/repo`, it'll install from the right place based on the presence/absence of `/`.
 
 
 ## Gargle stuff
@@ -372,7 +366,6 @@ sudo Rscript -e 'install.packages("tidyverse")'
 
 (there are several types of virtual environments... but I like conda ones). You don't need anaconda, you can use miniconda for this
 
- 
  - `conda create -n THINGIE python=3.9` - create a virtual environment called THINGIE, initialized w/ python 3.9
  - `conda env remove -n THINGIE` - removes the virtual environment
  - `conda activate THINGIE` (or `deactive`) - Activates/deactivates a virtual environment
@@ -380,6 +373,15 @@ sudo Rscript -e 'install.packages("tidyverse")'
  
  - `conda env create -f environment.yml` - you can use a yml file to build an environment based on an existing configuration.
  - (be inside an environment) `conda env export > environment.yml` - Exports the whole environment into a yml file (for portability). ~~HOWEVER... spacy language models do screw this up... so instead of  `en-core-web-md`, you should write: `spacy-model-en_core_web_md` but above the pip (I THINK?)~~. Either:
-   -  a) delete the language library, develop a shell-script to activate the environment & then download the model. 
+   -  a) delete the language library, develop a shell-script to activate the environment & then download the model. Note, if conda isn't globally installed on the VM, you might need to explicitly source it in, something like this script, which will build an environment from yaml based on VIRT_ENV_SETUP_FILENAME.yml. The echo is just there for debugging to make sure you're in the right place when installing spacy:
+   
+     ```
+     conda env create -f VIRT_ENV_SETUP_FILENAME.yml
+     source ~/miniconda3/etc/profile.d/conda.sh
+     conda activate VIRT_ENV_SETUP_FILENAME
+     echo $CONDA_DEFAULT_ENV
+     python -m spacy download en_core_web_sm
+     ```
+
    -  b) use docker :)
 
