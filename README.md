@@ -199,6 +199,7 @@ cd ..
 git rm --cached -r .Rproj.user
 ```
 
+`git commit --allow-empty -m "Trigger Build"` allows an empty commit that can be used to just retrigger CI/CD stuff w/out adding content.
 
 ## Dropbox
 Following the instructions [here](https://www.dropbox.com/en_GB/install-linux) are pretty painless... except if you want to perform a selective sync. In that case, make sure you install the `dropbox.py` they recommend, and keep in mind these two commands:
