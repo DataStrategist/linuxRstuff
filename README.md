@@ -367,9 +367,21 @@ or use the [Rinstaller]([url](https://github.com/DataStrategist/linuxRstuff/blob
 
 ## Python virtual environments
 
-(there are several types of virtual environments... but I like conda ones). You don't need anaconda, you can use miniconda for this
+(there are several types of virtual environments... but I like ~conda~ pip ones). 
 
- - `conda create -n THINGIE python=3.9` - create a virtual environment called THINGIE, initialized w/ python 3.9
+### Venv way
+ - Creating a Virtual Environment: `python -m venv myenv`
+ - Activating a Virtual Environment (Windows): `myenv\Scripts\activate`
+ - Activating a Virtual Environment (macOS/Linux): `source myenv/bin/activate`
+ - Deactivating the Virtual Environment: `deactivate`
+ - Destroying a Virtual Environment: Delete the directory
+ - Installing Packages: `pip install package_name`
+ - Creating Requirements File: `pip freeze > requirements.txt` or actually, `pip install pipreqs` and then just `pipreqs` in the folder for a MUUUCH BETTER EXPERIENCE.
+ - Installing Packages from Requirements File: `pip install -r requirements.txt`
+ - Upgrade pip within the Virtual Environment: `pip install --upgrade pip`
+
+### Conda way
+- `conda create -n THINGIE python=3.9` - create a virtual environment called THINGIE, initialized w/ python 3.9
  - `conda env remove -n THINGIE` - removes the virtual environment
  - `conda activate THINGIE` (or `deactive`) - Activates/deactivates a virtual environment
  - `conda create -n myenv python=3.9 scipy=0.17.3 astroid babel`  - you can keep specifing requirenments, like this... but can be unweildy
