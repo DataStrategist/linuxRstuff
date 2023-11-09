@@ -77,9 +77,12 @@ Where each part does this:
 
 `cut -d: -f1 /etc/passwd` display all users
 
+`sudo adduser x --force-badname` is the better prefered way to do it... if you do the other way RStudio might be upset.
+
+`sudo useradd -m x` to also create a home directory for the user. If you forgot to do that, you can always create a home directory later w/ `sudo mkhomedir_helper x`.
+
 `useradd x` add a user called x. Might have to sudo
 
-`sudo adduser x --force-badname` is the better prefered way to do it... if you do the other way RStudio might be upset.
 
 `passwd x` change the password for x
 
