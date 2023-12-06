@@ -20,6 +20,8 @@ Find files anywhere (starting from current location `sudo find . -name "*.fileEx
 
 Find files _containing_ specific file contents: `grep -rnw '/path/to/somewhere/' -e 'pattern'`
 
+Follow [this](https://www.r-bloggers.com/2018/02/installing-rjava-on-ubuntu/) to install rJava. Don't do any other method!!!
+
 ### Run stuff on the server
 
 You can either run stuff on a schedule, or design a job that will make it run continuously. To set up jobs on a schedule, use the `[crontab](https://crontab.guru/)`. 
