@@ -8,7 +8,13 @@ For all of these scripts, either clone the folder into your server (probably eas
 
 **regardless**, remember to make the file executable by using `chmod 777 filename` *. You can then jump into the folder containing these files and run it like this: `./file.sh`
 
-\* 777 gives EVERYBODY on the server the right to edit your file is generally seen as bad practice. Therefore this advice is more suited for sole data scientists or a very small team, not for large teams or production code.
+ > NOTE \* 777 gives EVERYBODY on the server the right to edit your file is generally seen as bad practice. Therefore this advice is more suited for sole data scientists or a very small team, not for large teams or production code. A better approach might be to add users to a group and assign permissions to the group... something like this:
+> 
+>  - Create a new group. For example, let's call it data_users, and suppose the folder you want to make as your playground is `/srv`: `sudo groupadd data_users`
+>  - Add Users to the Group: `sudo usermod -aG data_users your_username`
+>  - Set the group ownership of the /srv directory and its subdirectories to data_users:`sudo chown -R :data_users /srv`
+>  - Grant group write permissions recursively: `sudo chmod -R g+w /srv`
+>  - **IMPORTANT** Ensure Default Group for New Files: Set the default group for new files and directories within /srv to data_users, otherwise you would have to do this over and over. `sudo find /srv -type d -exec chmod g+s {} +`
 
  - **Rinstaller.sh** - create a file like this in your server and use it to install packages. That way, the packages will be available for all users.
   - **chek.sh** - a file that you can use to see if an R script is running... if it's running, then do nothing... if it's NOT running, then it assigns the working directory, and restarts the file.
@@ -20,7 +26,7 @@ Find files anywhere (starting from current location `sudo find . -name "*.fileEx
 
 Find files _containing_ specific file contents: `grep -rnw '/path/to/somewhere/' -e 'pattern'`
 
-Follow [this](https://www.r-bloggers.com/2018/02/installing-rjava-on-ubuntu/) to install rJava. Don't do any other method!!!
+Follow [this](https://www.r-bloggers.com/2018/02/installing-rjava-on-ubuntu/) to install rJava. Don't do any other method!!
 
 ### Run stuff on the server
 
