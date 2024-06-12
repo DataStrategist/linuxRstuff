@@ -178,6 +178,12 @@ In order to sync all files from one folder to the other, you need to set up a sy
 
 
 ## Git stuff
+
+To set up the user once this is setup, follow this guide: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+Make sure the permissions on those credentials are fairly low... something like `chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub` (but make sure you use the correct files... if you didn't use `rsa`, then modify accordingly.)
+
+
+If it doesn't work, the location where you cloned the repos might not have the right permissions... make sure your environment is chowned to the data group.
 There's so much to say... let's keep it simple:
 
 `sudo git stash` - Just bulldoze whatever local changes... a bit safer than the following option. Do this when you have a script running 
