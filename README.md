@@ -393,6 +393,7 @@ or use the [Rinstaller]([url](https://github.com/DataStrategist/linuxRstuff/blob
  - Deactivating the Virtual Environment: `deactivate`
  - Destroying a Virtual Environment: Delete the directory
  - Installing Packages: `pip install package_name`
+ - (don't forget to add myenv to `.gitignore`!)
  - Creating Requirements File: `pip freeze > requirements.txt` or actually, `pip install pipreqs` and then just `pipreqs` in the folder for a MUUUCH BETTER EXPERIENCE.
  - Installing Packages from Requirements File: `pip install -r requirements.txt`
  - Upgrade pip within the Virtual Environment: `pip install --upgrade pip`
