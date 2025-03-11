@@ -388,6 +388,7 @@ or use the [Rinstaller]([url](https://github.com/DataStrategist/linuxRstuff/blob
 
 ### Venv way
  - Creating a Virtual Environment: `python -m venv myenv`
+ - Create a Virtual Env with a certain version of python `python3.10 -m venv myenv`
  - Activating a Virtual Environment (Windows): `myenv\Scripts\activate`
  - Activating a Virtual Environment (macOS/Linux): `source myenv/bin/activate`
  - Deactivating the Virtual Environment: `deactivate`
